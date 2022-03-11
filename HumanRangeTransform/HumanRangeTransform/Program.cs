@@ -17,7 +17,11 @@ namespace HumanRangeTransform
             var start = DateTime.Now;
             try
             {
-
+                /*
+                 * BCP Command
+                 * ============
+                 * bcp "select 'CustomerId','Country','City','Number' union all select * from [usr].[SyncableCTNumbersToRibbon]" queryout C:\temp\numbers.txt -T -S jk-dev-13 -d "Master Data Service" -t "," -w
+                 */
                 using (var reader = new StreamReader(@"C:\temp\numbers.txt"))
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
